@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+@theme {
+  --color-coffee-bg: #F4EDE2;
+  --color-coffee-beige: #E8D8C5;
+  --color-coffee-dark: #35261F;
+  --color-coffee-card: #FFF9F1;
+  --color-coffee-espresso: #231813;
+  
+  --color-text-primary: #2B211C;
+  --color-text-secondary: #6F6258;
+  
+  --color-caramel: #A9653F;
+  --color-caramel-light: #C8895E;
+  
+  --color-border-warm: #D8C7B5;
+
+  --font-display: var(--font-display), Georgia, serif;
+  --font-sans: var(--font-sans), system-ui, sans-serif;
+
+  --radius-brand-sm: 6px;
+  --radius-brand: 10px;
+  --radius-brand-lg: 16px;
+}
+
+:root {
+  --background: #F4EDE2;
+  --foreground: #2B211C;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Minimal hero soft fade-in: exactly <= 400ms duration */
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-hero-fade {
+  animation: heroFadeIn 350ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Warm printed coffee menu card styles */
+.coffee-card {
+  background-color: #FFF9F1;
+  border: 1px solid #D8C7B5;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(43, 33, 28, 0.04);
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 200ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 200ms ease-out,
+              background-color 200ms ease-out;
+}
+
+.coffee-card:hover {
+  transform: translateY(-2.5px);
+  background-color: #FFFFFF;
+  border-color: #A9653F;
+  box-shadow: 0 8px 24px rgba(43, 33, 28, 0.08), 0 2px 6px rgba(169, 101, 63, 0.06);
+}
+
+/* Editorial button tactile states for warm coffee theme */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  background-color: #2B211C;
+  color: #FFF9F1;
+  font-size: 0.875rem;
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(43, 33, 28, 0.15);
+  transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-primary:hover {
+  background-color: #3D2F28;
+  transform: translateY(-1.5px);
+  box-shadow: 0 6px 18px rgba(43, 33, 28, 0.22);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  background-color: transparent;
+  border: 1px solid #2B211C;
+  color: #2B211C;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-secondary:hover {
+  background-color: #E8D8C5;
+  color: #2B211C;
+  transform: translateY(-1.5px);
+  box-shadow: 0 4px 12px rgba(43, 33, 28, 0.06);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+/* Accessibility: Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-hero-fade {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .coffee-card:hover,
+  .btn-primary:hover,
+  .btn-secondary:hover {
+    transform: none !important;
+  }
+}
+
+/* Tap target utility guaranteeing 44px min touch size */
+.tap-target {
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Focus ring styles */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #A9653F;
+  outline-offset: 2px;
+}

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 64" fill="none" aria-label="Malabar Roast &amp; Co. Logo">
+  <!-- Stylized coffee bean mark -->
+  <g transform="translate(4, 8)">
+    <circle cx="24" cy="24" r="23" stroke="#A9653F" stroke-width="2" fill="#FFF9F1" />
+    <!-- Bean contour -->
+    <path d="M24 10 C16 10, 11 16, 11 24 C11 32, 16 38, 24 38 C32 38, 37 32, 37 24 C37 16, 32 10, 24 10 Z" fill="#2B211C" />
+    <!-- S-curve crevasse -->
+    <path d="M24 12 C20 18, 28 22, 24 28 C20 34, 28 36, 24 36" stroke="#FFF9F1" stroke-width="2" stroke-linecap="round" fill="none" />
+    <!-- Steam leaf accent -->
+    <path d="M34 10 C36 7, 39 8, 39 12 C36 12, 34 11, 34 10 Z" fill="#A9653F" />
+  </g>
+  <!-- Typographic Wordmark -->
+  <text x="64" y="32" font-family="'Playfair Display', Georgia, serif" font-size="21" font-weight="700" letter-spacing="1.5" fill="#2B211C">
+    MALABAR
+  </text>
+  <text x="64" y="47" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="9" font-weight="600" letter-spacing="3.8" fill="#A9653F">
+    ROAST &amp; CO. · BENGALURU
+  </text>
+</svg>
