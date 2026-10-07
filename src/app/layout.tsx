@@ -19,8 +19,9 @@ const fontSans = Plus_Jakarta_Sans({
   display: "swap",
 });
 
+
 export const viewport: Viewport = {
-  themeColor: "#F4EDE2",
+  themeColor: "#1C1512",
   width: "device-width",
   initialScale: 1,
 };
@@ -73,7 +74,7 @@ export default function RootLayout({
       <head>
         <JsonLd />
       </head>
-      <body className="min-h-screen flex flex-col bg-[#F4EDE2] text-[#2B211C] font-sans selection:bg-[#A9653F] selection:text-[#FFF9F1]">
+      <body className="min-h-screen flex flex-col bg-[#FBF9F5] text-[#1C1512] font-sans">
         <Header />
         <main id="main-content" className="flex-1">
           {children}

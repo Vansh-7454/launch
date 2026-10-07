@@ -111,10 +111,10 @@ export default function AboutPage() {
           <p className="text-xs sm:text-sm text-[#6F6258] leading-relaxed max-w-lg mx-auto">
             Our brew bar is open daily from 07:30 AM on 12th Main Road. Baristas are always on hand to discuss origin notes and brewing methods.
           </p>
-          <div className="pt-2 flex flex-wrap justify-center items-center gap-3 sm:gap-4">
+          <div className="pt-2 flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-3 sm:gap-4">
             <Link
               href="/contact"
-              className="btn-primary tap-target group"
+              className="btn-primary tap-target group w-full sm:w-auto justify-center"
             >
               <MapPin className="w-4 h-4 text-[#FFF9F1] shrink-0" />
               <span>Get Directions to Roastery</span>
@@ -124,7 +124,7 @@ export default function AboutPage() {
               href={getWhatsAppUrl("Hi Malabar Roast & Co., I would like to ask about this week's single origin roasts.")}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-secondary tap-target"
+              className="btn-secondary tap-target w-full sm:w-auto justify-center"
             >
               <MessageCircle className="w-4 h-4 fill-[#25D366] text-[#25D366] shrink-0" />
               <span>Ask on WhatsApp</span>

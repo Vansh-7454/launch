@@ -126,13 +126,13 @@ export default function ContactSection({ showTitle = true }: ContactSectionProps
                 aria-label="Interactive Google Map showing 548 12th Main Road, Indiranagar"
               />
             </div>
-            <div className="flex items-center justify-between px-3.5 py-2.5 text-xs text-[#D8CCBC]">
-              <span>548, 12th Main Rd, HAL 2nd Stage, Indiranagar</span>
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between px-3.5 py-2.5 text-xs text-[#D8CCBC] gap-1.5 sm:gap-2">
+              <span className="truncate sm:overflow-visible">548, 12th Main Rd, HAL 2nd Stage, Indiranagar</span>
               <a
                 href={business.googleMaps.viewUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#C8895E] hover:text-[#FFF9F1] font-semibold hover:underline inline-flex items-center gap-1"
+                className="text-[#C8895E] hover:text-[#FFF9F1] font-semibold hover:underline inline-flex items-center gap-1 shrink-0 self-start sm:self-auto"
               >
                 Open in Maps <ExternalLink className="w-3 h-3" />
               </a>

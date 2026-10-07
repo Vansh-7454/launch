@@ -70,11 +70,11 @@ export default function GallerySection() {
           </div>
 
           {/* Supporting Images (Desktop: 5 cols, 3 items stacked or grid) */}
-          <div className="md:col-span-5 grid grid-cols-2 md:grid-cols-1 gap-4 lg:gap-5">
+          <div className="md:col-span-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-4 lg:gap-5">
             {supportingImages.map((img, idx) => (
               <div
                 key={idx}
-                className="group relative aspect-[4/3] md:aspect-[16/7] rounded-xl overflow-hidden bg-[#E8D8C5] border border-[#D8C7B5] shadow-xs"
+                className="group relative aspect-[16/10] sm:aspect-[4/3] md:aspect-[16/7] rounded-xl overflow-hidden bg-[#E8D8C5] border border-[#D8C7B5] shadow-xs"
               >
                 <Image
                   src={img.src}

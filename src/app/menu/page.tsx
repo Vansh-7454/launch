@@ -53,12 +53,12 @@ export default function MenuPage() {
             <p className="text-xs sm:text-sm text-[#6F6258] leading-relaxed">
               Purchasing whole beans? Tell our baristas your brewer (South Indian decoction filter, French Press, AeroPress, Mokapot, or Espresso) and we will precision-grind your bag on our commercial grinder at no extra cost.
             </p>
-            <div className="pt-2 flex flex-wrap items-center gap-3">
+            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
               <a
                 href={getOrderWhatsAppUrl("Whole Bean Roasts")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary tap-target"
+                className="btn-primary tap-target w-full sm:w-auto"
                 aria-label="Order whole beans on WhatsApp"
               >
                 <MessageCircle className="w-4 h-4 fill-[#FFF9F1] text-[#FFF9F1]" aria-hidden="true" />
@@ -66,7 +66,7 @@ export default function MenuPage() {
               </a>
               <a
                 href={`tel:${business.phone.tel}`}
-                className="btn-secondary tap-target"
+                className="btn-secondary tap-target w-full sm:w-auto"
                 aria-label={`Call Roastery: ${business.phone.display}`}
               >
                 <Phone className="w-3.5 h-3.5 text-[#A9653F]" aria-hidden="true" />
@@ -128,7 +128,7 @@ export default function MenuPage() {
                         href={getOrderWhatsAppUrl(items[0].name)}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn-primary tap-target text-xs font-semibold flex items-center justify-between gap-2"
+                        className="btn-primary tap-target text-xs font-semibold flex items-center justify-between gap-2 w-full sm:w-auto"
                         aria-label={`Order ${items[0].name} on WhatsApp`}
                       >
                         <span className="flex items-center gap-2">
@@ -148,42 +148,62 @@ export default function MenuPage() {
                         className="coffee-card p-6 flex flex-col justify-between"
                       >
                         <div>
-                          <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#A9653F] block">
-                            {item.category}
-                          </span>
-                          <div className="mt-1 flex items-baseline justify-between gap-2">
-                            <h3 className="text-base sm:text-lg font-bold text-[#2B211C] font-display leading-snug">
+                          <div className="flex items-center justify-between gap-2 mb-1.5">
+                            <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#8C4F2D]">
+                              {item.category}
+                            </span>
+                            {item.badge && (
+                              <span className="text-[10px] font-semibold text-[#8C4F2D] bg-[#EAE0D2] px-2 py-0.5 rounded-full border border-[#D8C7B5]">
+                                {item.badge}
+                              </span>
+                            )}
+                          </div>
+
+                          <div className="flex items-baseline justify-between gap-2">
+                            <h3 className="text-lg font-bold text-[#231813] font-display leading-snug">
                               {item.name}
                             </h3>
                             {item.priceInInr && (
-                              <span className="text-base font-bold text-[#A9653F] font-mono tabular-nums shrink-0">
+                              <span className="text-lg font-bold text-[#8C4F2D] font-mono tabular-nums shrink-0">
                                 {formatInrPrice(item.priceInInr)}
                               </span>
                             )}
                           </div>
+
                           <p className="mt-2 text-xs sm:text-sm text-[#6F6258] leading-relaxed">
                             {item.description}
                           </p>
+
+                          {/* Flavor Notes */}
+                          {item.tastingNotes && item.tastingNotes.length > 0 && (
+                            <div className="mt-3 flex flex-wrap items-center gap-1.5">
+                              {item.tastingNotes.map((note, idx) => (
+                                <span key={idx} className="badge-flavor">{note}</span>
+                              ))}
+                            </div>
+                          )}
+
                           {item.note && (
-                            <div className="mt-3 inline-flex items-center gap-1.5 text-[11px] font-medium text-[#6F6258] bg-[#E8D8C5]/60 px-2.5 py-0.5 rounded border border-[#D8C7B5]">
+                            <div className="mt-3 inline-flex items-center gap-1.5 text-[11px] font-medium text-[#6F6258] bg-[#EAE0D2]/60 px-2.5 py-0.5 rounded-md border border-[#D8C7B5]">
                               <span className="w-1.5 h-1.5 rounded-full bg-[#A9653F]" aria-hidden="true" />
                               <span>{item.note}</span>
                             </div>
                           )}
                         </div>
-                        <div className="mt-5 pt-3.5 border-t border-[#D8C7B5] flex items-center justify-between">
+
+                        <div className="mt-5 pt-3.5 border-t border-[#D8C7B5] flex flex-wrap items-center justify-between gap-2">
                           <a
                             href={getOrderWhatsAppUrl(item.name)}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group inline-flex items-center gap-2 text-xs font-semibold text-[#2B211C] hover:text-[#A9653F] transition-colors py-1"
+                            className="group inline-flex items-center gap-2 text-xs font-semibold text-[#231813] hover:text-[#8C4F2D] transition-colors py-1"
                             aria-label={`Order ${item.name} on WhatsApp`}
                           >
                             <MessageCircle className="w-3.5 h-3.5 fill-[#25D366] text-[#25D366]" aria-hidden="true" />
                             <span>Order on WhatsApp</span>
-                            <ArrowRight className="w-3 h-3 text-[#A9653F] transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true" />
+                            <ArrowRight className="w-3 h-3 text-[#8C4F2D] transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true" />
                           </a>
-                          <span className="text-[10px] font-medium uppercase tracking-wider text-[#6F6258] bg-[#E8D8C5]/60 border border-[#D8C7B5] px-2 py-0.5 rounded">
+                          <span className="text-[10px] font-medium uppercase tracking-wider text-[#6F6258] bg-[#EAE0D2]/70 border border-[#D8C7B5] px-2 py-0.5 rounded shrink-0">
                             In-Store &amp; Pickup
                           </span>
                         </div>
@@ -199,42 +219,62 @@ export default function MenuPage() {
                         className="coffee-card p-6 flex flex-col justify-between"
                       >
                         <div>
-                          <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#A9653F] block">
-                            {item.category}
-                          </span>
-                          <div className="mt-1 flex items-baseline justify-between gap-3">
-                            <h3 className="text-base sm:text-lg font-bold text-[#2B211C] font-display leading-snug">
+                          <div className="flex items-center justify-between gap-2 mb-1.5">
+                            <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#8C4F2D]">
+                              {item.category}
+                            </span>
+                            {item.badge && (
+                              <span className="text-[10px] font-semibold text-[#8C4F2D] bg-[#EAE0D2] px-2 py-0.5 rounded-full border border-[#D8C7B5]">
+                                {item.badge}
+                              </span>
+                            )}
+                          </div>
+
+                          <div className="flex items-baseline justify-between gap-3">
+                            <h3 className="text-lg sm:text-xl font-bold text-[#231813] font-display leading-snug">
                               {item.name}
                             </h3>
                             {item.priceInInr && (
-                              <span className="text-base sm:text-lg font-bold text-[#A9653F] font-mono tabular-nums shrink-0">
+                              <span className="text-lg sm:text-xl font-bold text-[#8C4F2D] font-mono tabular-nums shrink-0">
                                 {formatInrPrice(item.priceInInr)}
                               </span>
                             )}
                           </div>
+
                           <p className="mt-2 text-xs sm:text-sm text-[#6F6258] leading-relaxed">
                             {item.description}
                           </p>
+
+                          {/* Flavor Notes */}
+                          {item.tastingNotes && item.tastingNotes.length > 0 && (
+                            <div className="mt-3 flex flex-wrap items-center gap-1.5">
+                              {item.tastingNotes.map((note, idx) => (
+                                <span key={idx} className="badge-flavor">{note}</span>
+                              ))}
+                            </div>
+                          )}
+
                           {item.note && (
-                            <div className="mt-3 inline-flex items-center gap-1.5 text-[11px] font-medium text-[#6F6258] bg-[#E8D8C5]/60 px-2.5 py-0.5 rounded border border-[#D8C7B5]">
+                            <div className="mt-3 inline-flex items-center gap-1.5 text-[11px] font-medium text-[#6F6258] bg-[#EAE0D2]/60 px-2.5 py-0.5 rounded-md border border-[#D8C7B5]">
                               <span className="w-1.5 h-1.5 rounded-full bg-[#A9653F]" aria-hidden="true" />
                               <span>{item.note}</span>
                             </div>
                           )}
                         </div>
-                        <div className="mt-5 pt-3.5 border-t border-[#D8C7B5] flex items-center justify-between">
+
+                        <div className="mt-5 pt-3.5 border-t border-[#D8C7B5] flex flex-wrap items-center justify-between gap-2">
                           <a
                             href={getOrderWhatsAppUrl(item.name)}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group inline-flex items-center gap-2 text-xs font-semibold text-[#2B211C] hover:text-[#A9653F] transition-colors py-1"
+                            className="group inline-flex items-center gap-2 text-xs font-semibold text-[#231813] hover:text-[#8C4F2D] transition-colors py-1"
                             aria-label={`Order ${item.name} on WhatsApp`}
                           >
                             <MessageCircle className="w-3.5 h-3.5 fill-[#25D366] text-[#25D366]" aria-hidden="true" />
                             <span>Order on WhatsApp</span>
-                            <ArrowRight className="w-3 h-3 text-[#A9653F] transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true" />
+                            <ArrowRight className="w-3 h-3 text-[#8C4F2D] transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true" />
                           </a>
-                          <span className="text-[10px] font-medium uppercase tracking-wider text-[#6F6258] bg-[#E8D8C5]/60 border border-[#D8C7B5] px-2 py-0.5 rounded">
+                          <span className="text-[10px] font-medium uppercase tracking-wider text-[#6F6258] bg-[#EAE0D2]/70 border border-[#D8C7B5] px-2 py-0.5 rounded shrink-0">
                             In-Store &amp; Pickup
                           </span>
                         </div>
