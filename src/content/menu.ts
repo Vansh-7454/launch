@@ -8,6 +8,7 @@ export interface MenuItem {
   tastingNotes?: string[];
   roastLevel?: string;
   badge?: string;
+  image: string;
 }
 
 export const menuCategories: Array<MenuItem["category"]> = [
@@ -28,7 +29,8 @@ export const menuItems: MenuItem[] = [
     note: "Served hot in traditional brass davarah",
     tastingNotes: ["Dark Cocoa", "Roasted Chicory", "Warm Milk Cream"],
     roastLevel: "Medium-Dark Roast",
-    badge: "House Signature"
+    badge: "House Signature",
+    image: "/images/kaapi-brass.jpg"
   },
   {
     id: "chikmagalur-pourover",
@@ -39,7 +41,8 @@ export const menuItems: MenuItem[] = [
     note: "V60 manual extraction · 1:16 ratio",
     tastingNotes: ["Jasmine Blossom", "Meyer Lemon", "Cane Sugar"],
     roastLevel: "Light Roast",
-    badge: "SCA 88+ Micro-Lot"
+    badge: "SCA 88+ Micro-Lot",
+    image: "/images/hero-pourover.jpg"
   },
   {
     id: "wayanad-cold-brew",
@@ -50,7 +53,8 @@ export const menuItems: MenuItem[] = [
     note: "Steeped cold daily in-house",
     tastingNotes: ["Dark Cacao", "Roasted Hazelnut", "Molasses"],
     roastLevel: "Medium-Dark Roast",
-    badge: "Slow Steeped"
+    badge: "Slow Steeped",
+    image: "/images/cold-brew.jpg"
   },
   {
     id: "aeropress-reserve",
@@ -61,7 +65,8 @@ export const menuItems: MenuItem[] = [
     note: "Hand-pressed to order",
     tastingNotes: ["Cardamom", "Brown Butter", "Ripe Plum"],
     roastLevel: "Medium Roast",
-    badge: "Single Estate"
+    badge: "Single Estate",
+    image: "/images/aeropress.jpg"
   },
   {
     id: "flat-white",
@@ -72,7 +77,8 @@ export const menuItems: MenuItem[] = [
     note: "Oat milk option available",
     tastingNotes: ["Toasted Almond", "Caramelized Sugar", "Velvet Milk"],
     roastLevel: "Medium Roast",
-    badge: "Double Ristretto"
+    badge: "Double Ristretto",
+    image: "/images/latte-art.jpg"
   },
   {
     id: "jaggery-iced-coffee",
@@ -83,7 +89,8 @@ export const menuItems: MenuItem[] = [
     note: "Naturally sweetened with farm jaggery",
     tastingNotes: ["Spiced Jaggery", "Cinnamon Bark", "Chilled Espresso"],
     roastLevel: "Medium-Dark Roast",
-    badge: "Karnataka Special"
+    badge: "Karnataka Special",
+    image: "/images/iced-espresso.jpg"
   },
   {
     id: "whole-bean-estate-pouch",
@@ -94,7 +101,8 @@ export const menuItems: MenuItem[] = [
     note: "Roasted weekly · Degassing valve pack",
     tastingNotes: ["Dark Chocolate", "Black Cherry", "Cedarwood"],
     roastLevel: "Medium or Dark",
-    badge: "Fresh Weekly Roast"
+    badge: "Fresh Weekly Roast",
+    image: "/images/beans-pouch.jpg"
   },
   {
     id: "banana-walnut-bread",
@@ -104,7 +112,8 @@ export const menuItems: MenuItem[] = [
     priceInInr: 160,
     note: "Served warm with salted farm butter",
     tastingNotes: ["Caramelized Banana", "Toasted Walnut", "Sea Salt Butter"],
-    badge: "Baked Fresh Daily"
+    badge: "Baked Fresh Daily",
+    image: "/images/banana-bread.jpg"
   }
 ];
 

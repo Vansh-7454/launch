@@ -11,17 +11,19 @@ const fontDisplay = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
+  weight: ["400", "600", "700", "800"],
+  style: ["normal", "italic"],
 });
 
 const fontSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
+  weight: ["400", "500", "600", "700"],
 });
 
-
 export const viewport: Viewport = {
-  themeColor: "#1C1512",
+  themeColor: "#2B1D17",
   width: "device-width",
   initialScale: 1,
 };
@@ -74,7 +76,7 @@ export default function RootLayout({
       <head>
         <JsonLd />
       </head>
-      <body className="min-h-screen flex flex-col bg-[#FBF9F5] text-[#1C1512] font-sans">
+      <body className="min-h-screen flex flex-col bg-[#F5EDE2] text-[#2B1D17] font-sans antialiased selection:bg-[#A85F37] selection:text-[#FFFCF7]">
         <Header />
         <main id="main-content" className="flex-1">
           {children}

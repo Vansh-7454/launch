@@ -1,5 +1,5 @@
 import { business, getWhatsAppUrl } from "@/content/business";
-import { Phone, MessageCircle, MapPin, Clock, Navigation, ExternalLink } from "lucide-react";
+import { Phone, MessageCircle, MapPin, Clock, Navigation, ExternalLink, Mail } from "lucide-react";
 
 interface ContactSectionProps {
   showTitle?: boolean;
@@ -7,91 +7,117 @@ interface ContactSectionProps {
 
 export default function ContactSection({ showTitle = true }: ContactSectionProps) {
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-[#35261F] border-t border-[#4A372E]">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <section className="py-16 sm:py-20 lg:py-24 bg-[#F5EDE2] border-t border-[#E8D8C4] text-[#2B1D17]">
+      <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
         {showTitle && (
-          <div className="mb-10 sm:mb-12 text-center max-w-2xl mx-auto">
-            <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.16em] text-[#C8895E]">
+          <div className="mb-10 sm:mb-14 text-center max-w-2xl mx-auto">
+            <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#8C4F2D]">
               Visit Us in Indiranagar
             </span>
-            <h2 className="mt-2 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-[#FFF9F1] font-display">
+            <h2 className="mt-2 text-3xl sm:text-4xl lg:text-[42px] font-normal tracking-tight text-[#2B1D17] font-display">
               Roastery, Brew Bar &amp; Neighborhood Cafe
             </h2>
-            <p className="mt-2.5 text-xs sm:text-sm text-[#D8CCBC] max-w-lg mx-auto leading-relaxed">
-              Drop in for freshly pulled espresso, traditional brass filter kaapi, or pick up whole beans roasted this week.
+            <p className="mt-2.5 text-sm sm:text-base text-[#63534B] max-w-lg mx-auto leading-relaxed">
+              Drop in for freshly pulled espresso, traditional brass filter kaapi, or pick up whole beans roasted this week on 12th Main Road.
             </p>
           </div>
         )}
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           {/* Contact Details Card (5 cols) */}
-          <div className="lg:col-span-5 bg-[#2A1E18] rounded-2xl border border-[rgba(244,237,226,0.12)] p-6 sm:p-8 shadow-md space-y-6">
-            {/* Address */}
-            <div className="flex items-start gap-3.5">
-              <div className="p-2.5 rounded-lg bg-[#35261F] border border-[rgba(244,237,226,0.12)] text-[#C8895E] shrink-0 mt-0.5">
-                <MapPin className="w-4 h-4" aria-hidden="true" />
+          <div className="lg:col-span-5 bg-[#FFFCF7] rounded-2xl border border-[#E8D8C4] p-6 sm:p-8 shadow-sm flex flex-col justify-between space-y-6">
+            <div className="space-y-6">
+              {/* Address */}
+              <div className="flex items-start gap-3.5">
+                <div className="p-2.5 rounded-xl bg-[#EFE3D5] text-[#A85F37] shrink-0 mt-0.5 border border-[#E8D8C4]">
+                  <MapPin className="w-4 h-4 text-[#A85F37]" aria-hidden="true" />
+                </div>
+                <div>
+                  <h3 className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#8C4F2D]">
+                    Roastery Address
+                  </h3>
+                  <address className="not-italic text-sm sm:text-base font-semibold text-[#2B1D17] mt-1 leading-relaxed">
+                    {business.addressLines.map((line, idx) => (
+                      <span key={idx} className="block">{line}</span>
+                    ))}
+                  </address>
+                  <p className="text-xs text-[#7A6960] mt-1">
+                    Near 12th Main junction, HAL 2nd Stage, Indiranagar
+                  </p>
+                </div>
               </div>
-              <div>
-                <h3 className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#C8895E]">
-                  Address
-                </h3>
-                <address className="not-italic text-sm sm:text-base font-medium text-[#FFF9F1] mt-1 leading-relaxed">
-                  {business.addressLines.map((line, idx) => (
-                    <span key={idx} className="block">{line}</span>
-                  ))}
-                </address>
-                <p className="text-xs text-[#D8CCBC] mt-1">
-                  Near 12th Main junction, HAL 2nd Stage
-                </p>
-              </div>
-            </div>
 
-            {/* Hours */}
-            <div className="flex items-start gap-3.5 pt-5 border-t border-[rgba(244,237,226,0.1)]">
-              <div className="p-2.5 rounded-lg bg-[#35261F] border border-[rgba(244,237,226,0.12)] text-[#C8895E] shrink-0 mt-0.5">
-                <Clock className="w-4 h-4" aria-hidden="true" />
+              {/* Opening Hours */}
+              <div className="flex items-start gap-3.5 pt-5 border-t border-[#E8D8C4]">
+                <div className="p-2.5 rounded-xl bg-[#EFE3D5] text-[#A85F37] shrink-0 mt-0.5 border border-[#E8D8C4]">
+                  <Clock className="w-4 h-4 text-[#A85F37]" aria-hidden="true" />
+                </div>
+                <div className="w-full">
+                  <h3 className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#8C4F2D]">
+                    Opening Hours
+                  </h3>
+                  <div className="mt-2 space-y-1.5">
+                    {business.hours.map((h, i) => (
+                      <div key={i} className="flex justify-between gap-3 text-xs sm:text-sm">
+                        <span className="font-medium text-[#2B1D17]">{h.days}</span>
+                        <span className="text-[#63534B] font-mono">{h.hours}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
-              <div className="w-full">
-                <h3 className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#C8895E]">
-                  Opening Hours
-                </h3>
-                <div className="mt-2 space-y-1.5 text-sm">
-                  {business.hours.map((h, i) => (
-                    <div key={i} className="flex justify-between gap-3 text-xs sm:text-sm">
-                      <span className="font-medium text-[#FFF9F1]">{h.days}</span>
-                      <span className="text-[#D8CCBC] font-mono">{h.hours}</span>
-                    </div>
-                  ))}
+
+              {/* Phone & Email */}
+              <div className="flex items-start gap-3.5 pt-5 border-t border-[#E8D8C4]">
+                <div className="p-2.5 rounded-xl bg-[#EFE3D5] text-[#A85F37] shrink-0 mt-0.5 border border-[#E8D8C4]">
+                  <Phone className="w-4 h-4 text-[#A85F37]" aria-hidden="true" />
+                </div>
+                <div className="w-full space-y-1.5">
+                  <h3 className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#8C4F2D]">
+                    Phone &amp; Email
+                  </h3>
+                  <div className="flex flex-col gap-1.5 text-xs sm:text-sm">
+                    <a
+                      href={`tel:${business.phone.tel}`}
+                      className="text-[#2B1D17] hover:text-[#A85F37] transition-colors font-mono font-semibold"
+                    >
+                      {business.phone.display}
+                    </a>
+                    <a
+                      href={`mailto:${business.email}`}
+                      className="text-[#63534B] hover:text-[#2B1D17] transition-colors flex items-center gap-1.5"
+                    >
+                      <Mail className="w-3.5 h-3.5 text-[#A85F37]" aria-hidden="true" />
+                      <span>{business.email}</span>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Direct Contacts & Actions */}
-            <div className="pt-5 border-t border-[rgba(244,237,226,0.1)] space-y-3.5">
-              <h3 className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#C8895E]">
+            <div className="pt-6 border-t border-[#E8D8C4] space-y-3">
+              <h3 className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#8C4F2D]">
                 Direct Contacts &amp; Booking
               </h3>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {/* Tap to Call */}
+              <div className="grid grid-cols-2 gap-3">
                 <a
                   href={`tel:${business.phone.tel}`}
-                  className="inline-flex items-center justify-center gap-2 rounded-md bg-transparent border border-[rgba(244,237,226,0.35)] hover:bg-[#35261F] px-4 py-2.5 text-xs font-semibold text-[#FFF9F1] transition-all tap-target w-full"
-                  aria-label={`Call ${business.phone.display}`}
+                  className="btn-secondary tap-target h-12 w-full gap-2 justify-center"
+                  aria-label="Call roastery directly"
                 >
-                  <Phone className="w-3.5 h-3.5 text-[#C8895E] shrink-0" aria-hidden="true" />
+                  <Phone className="w-4 h-4 text-[#A85F37] shrink-0" aria-hidden="true" />
                   <span>Call Now</span>
                 </a>
 
-                {/* WhatsApp */}
                 <a
                   href={getWhatsAppUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-md bg-[#FFF9F1] hover:bg-[#FFFFFF] px-4 py-2.5 text-xs font-semibold text-[#2B211C] transition-all tap-target shadow-xs w-full"
+                  className="btn-primary tap-target h-12 w-full gap-2 justify-center"
                   aria-label="WhatsApp us"
                 >
-                  <MessageCircle className="w-3.5 h-3.5 fill-[#2B211C] text-[#2B211C] shrink-0" aria-hidden="true" />
+                  <MessageCircle className="w-4 h-4 fill-[#25D366] text-[#25D366] shrink-0" aria-hidden="true" />
                   <span>WhatsApp Us</span>
                 </a>
               </div>
@@ -101,19 +127,19 @@ export default function ContactSection({ showTitle = true }: ContactSectionProps
                 href={business.googleMaps.directionsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-[#A9653F] hover:bg-[#945633] text-[#FFF9F1] text-xs sm:text-sm font-semibold transition-all duration-200 tap-target shadow-xs"
+                className="w-full inline-flex items-center justify-center gap-2.5 px-4 rounded-xl bg-[#A85F37] hover:bg-[#93512D] text-[#FFFCF7] text-xs sm:text-sm font-semibold transition-all duration-200 h-12 tap-target shadow-xs"
                 aria-label="Get directions to Malabar Roast on Google Maps"
               >
-                <Navigation className="w-3.5 h-3.5 text-[#FFF9F1]" aria-hidden="true" />
+                <Navigation className="w-4 h-4 text-[#FFFCF7]" aria-hidden="true" />
                 <span>Get Directions on Google Maps</span>
-                <ExternalLink className="w-3 h-3 text-[#D8CCBC]" aria-hidden="true" />
+                <ExternalLink className="w-3.5 h-3.5 text-[#E8D8C4]" aria-hidden="true" />
               </a>
             </div>
           </div>
 
-          {/* Lazy-Loaded Google Maps Embed (7 cols) */}
-          <div className="lg:col-span-7 bg-[#2A1E18] rounded-2xl border border-[rgba(244,237,226,0.12)] p-2.5 shadow-md overflow-hidden flex flex-col">
-            <div className="relative w-full h-[340px] sm:h-[400px] rounded-xl overflow-hidden bg-[#231813]">
+          {/* Google Maps Embed Card (7 cols) */}
+          <div className="lg:col-span-7 bg-[#FFFCF7] rounded-2xl border border-[#E8D8C4] p-3 sm:p-4 shadow-sm overflow-hidden flex flex-col justify-between">
+            <div className="relative w-full h-[340px] sm:h-[400px] lg:h-full min-h-[340px] sm:min-h-[380px] rounded-xl overflow-hidden bg-[#E8D8C4]">
               <iframe
                 title="Malabar Roast &amp; Co. Indiranagar Location Map"
                 src={business.googleMaps.embedUrl}
@@ -126,15 +152,16 @@ export default function ContactSection({ showTitle = true }: ContactSectionProps
                 aria-label="Interactive Google Map showing 548 12th Main Road, Indiranagar"
               />
             </div>
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between px-3.5 py-2.5 text-xs text-[#D8CCBC] gap-1.5 sm:gap-2">
-              <span className="truncate sm:overflow-visible">548, 12th Main Rd, HAL 2nd Stage, Indiranagar</span>
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between px-3 pt-3.5 text-xs text-[#63534B] gap-2">
+              <span className="truncate sm:overflow-visible font-medium">548, 12th Main Rd, HAL 2nd Stage, Indiranagar</span>
               <a
                 href={business.googleMaps.viewUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#C8895E] hover:text-[#FFF9F1] font-semibold hover:underline inline-flex items-center gap-1 shrink-0 self-start sm:self-auto"
+                className="text-[#A85F37] hover:text-[#8C4F2D] font-semibold hover:underline inline-flex items-center gap-1.5 shrink-0 self-start sm:self-auto"
               >
-                Open in Maps <ExternalLink className="w-3 h-3" />
+                <span>Open in Google Maps</span>
+                <ExternalLink className="w-3.5 h-3.5" />
               </a>
             </div>
           </div>

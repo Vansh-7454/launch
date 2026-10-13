@@ -15,25 +15,26 @@ export const metadata: Metadata = {
 
 export default function MenuPage() {
   return (
-    <div className="py-14 sm:py-18 bg-[#F4EDE2]">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <div className="py-14 sm:py-20 bg-[#F5EDE2]">
+      <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
+        
         {/* Page Header */}
         <div className="max-w-2xl">
-          <div className="inline-flex items-center gap-1.5 rounded bg-[#E8D8C5] border border-[#D8C7B5] px-3 py-1 text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.16em] text-[#A9653F]">
-            <Coffee className="w-3.5 h-3.5 text-[#A9653F]" />
+          <div className="inline-flex items-center gap-2 rounded-full bg-[#EFE3D5] border border-[#E8D8C4] px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.16em] text-[#8C4F2D]">
+            <Coffee className="w-3.5 h-3.5 text-[#A85F37]" />
             <span>Indiranagar Roastery &amp; Brew Bar</span>
           </div>
-          <h1 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#2B211C] font-display">
+          <h1 className="mt-3.5 text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-[#2B1D17] font-display">
             Coffee &amp; Fresh Roasts Menu
           </h1>
-          <p className="mt-3 text-sm sm:text-base text-[#6F6258] leading-relaxed max-w-xl">
+          <p className="mt-3 text-base text-[#63534B] leading-relaxed max-w-xl">
             All beans are roasted in small batches weekly on 12th Main Road. Whole bean pouches and fresh brews are available for dine-in, takeaway, and direct WhatsApp ordering.
           </p>
         </div>
 
         {/* Featured Roast Protocol Banner with Authentic Visual */}
-        <div className="mt-10 rounded-2xl border border-[#D8C7B5] bg-[#FFF9F1] overflow-hidden shadow-xs grid grid-cols-1 md:grid-cols-12 items-center">
-          <div className="md:col-span-5 relative aspect-[4/3] md:aspect-auto md:h-full min-h-[260px] bg-[#E8D8C5]">
+        <div className="mt-10 rounded-2xl border border-[#E8D8C4] bg-[#FFFCF7] overflow-hidden shadow-sm grid grid-cols-1 md:grid-cols-12 items-center">
+          <div className="md:col-span-5 relative aspect-[4/3] md:aspect-auto md:h-full min-h-[280px] bg-[#E8D8C4]">
             <Image
               src="/images/kaapi-brass.jpg"
               alt="Traditional South Indian filter coffee in brass tumbler and davarah on wood table at Malabar Roast & Co."
@@ -42,168 +43,200 @@ export default function MenuPage() {
               className="object-cover object-center"
             />
           </div>
-          <div className="p-6 sm:p-8 md:col-span-7 space-y-4">
-            <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#A9653F] uppercase tracking-[0.14em]">
-              <Sparkles className="w-4 h-4" />
+          <div className="p-6 sm:p-8 lg:p-10 md:col-span-7 space-y-4">
+            <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#A85F37] uppercase tracking-[0.14em]">
+              <Sparkles className="w-4 h-4 text-[#A85F37]" />
               <span>Complimentary Grind Protocol</span>
             </div>
-            <h2 className="text-xl sm:text-2xl font-bold text-[#2B211C] font-display">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#2B1D17] font-display">
               Custom Grinds for Your Home Setup
             </h2>
-            <p className="text-xs sm:text-sm text-[#6F6258] leading-relaxed">
+            <p className="text-sm text-[#63534B] leading-relaxed">
               Purchasing whole beans? Tell our baristas your brewer (South Indian decoction filter, French Press, AeroPress, Mokapot, or Espresso) and we will precision-grind your bag on our commercial grinder at no extra cost.
             </p>
-            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
               <a
                 href={getOrderWhatsAppUrl("Whole Bean Roasts")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary tap-target w-full sm:w-auto"
+                className="btn-primary tap-target w-full sm:w-auto gap-2"
                 aria-label="Order whole beans on WhatsApp"
               >
-                <MessageCircle className="w-4 h-4 fill-[#FFF9F1] text-[#FFF9F1]" aria-hidden="true" />
+                <MessageCircle className="w-4 h-4 fill-[#FFFCF7] text-[#FFFCF7]" aria-hidden="true" />
                 <span>Order Beans on WhatsApp</span>
               </a>
               <a
                 href={`tel:${business.phone.tel}`}
-                className="btn-secondary tap-target w-full sm:w-auto"
+                className="btn-secondary tap-target w-full sm:w-auto gap-2"
                 aria-label={`Call Roastery: ${business.phone.display}`}
               >
-                <Phone className="w-3.5 h-3.5 text-[#A9653F]" aria-hidden="true" />
-                <span className="font-mono">{business.phone.display}</span>
+                <Phone className="w-3.5 h-3.5 text-[#A85F37]" aria-hidden="true" />
+                <span className="font-mono text-xs">{business.phone.display}</span>
               </a>
             </div>
           </div>
         </div>
 
-        {/* Categorized Menu List with No Asymmetric Empty Voids */}
-        <div className="mt-14 sm:mt-16 space-y-12 sm:space-y-14">
+        {/* Categorized Menu List */}
+        <div className="mt-14 sm:mt-18 space-y-12 sm:space-y-14">
           {menuCategories.map((category) => {
             const items = menuItems.filter((i) => i.category === category);
             if (items.length === 0) return null;
 
             return (
               <section key={category} className="space-y-5">
-                <div className="border-b border-[#D8C7B5] pb-3 flex items-center justify-between">
-                  <h2 className="text-xl sm:text-2xl font-bold text-[#2B211C] font-display">
+                <div className="border-b border-[#E8D8C4] pb-3 flex items-center justify-between">
+                  <h2 className="text-2xl sm:text-3xl font-normal text-[#2B1D17] font-display">
                     {category}
                   </h2>
-                  <span className="text-xs text-[#6F6258] font-medium uppercase tracking-wider">
+                  <span className="text-xs text-[#8C4F2D] font-semibold uppercase tracking-wider">
                     {items.length} {items.length === 1 ? "Selection" : "Selections"}
                   </span>
                 </div>
 
-                {/* If single item: Full-width editorial layout (avoids half-empty 2-column voids) */}
+                {/* If single item: Full-width editorial layout */}
                 {items.length === 1 ? (
-                  <div className="coffee-card p-6 sm:p-7 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-                    <div className="md:col-span-8 space-y-2">
-                      <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#A9653F] block">
+                  <div className="coffee-card group overflow-hidden grid grid-cols-1 md:grid-cols-12 items-center">
+                    <div className="md:col-span-5 relative aspect-[16/10] md:aspect-auto md:h-full min-h-[260px] bg-[#E8D8C4] border-b md:border-b-0 md:border-r border-[#E8D8C4] overflow-hidden">
+                      <Image
+                        src={items[0].image}
+                        alt={items[0].name}
+                        fill
+                        unoptimized
+                        sizes="(max-width: 768px) 100vw, 480px"
+                        className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
+                      />
+                      <div className="absolute top-3.5 left-3.5 bg-[#2B1D17]/85 backdrop-blur-xs text-[#FFFCF7] border border-[rgba(245,237,226,0.2)] px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">
                         {items[0].category}
-                      </span>
-                      <div className="mt-1 flex items-baseline justify-between gap-4">
-                        <h3 className="text-xl sm:text-2xl font-bold text-[#2B211C] font-display">
+                      </div>
+                      {items[0].badge && (
+                        <div className="absolute top-3.5 right-3.5 bg-[#FFFCF7]/95 backdrop-blur-xs text-[#8C4F2D] border border-[#E8D8C4] px-3 py-1 rounded-full text-[10px] font-semibold tracking-wide shadow-2xs">
+                          {items[0].badge}
+                        </div>
+                      )}
+                    </div>
+                    <div className="md:col-span-7 p-6 sm:p-8 space-y-4">
+                      <div className="flex items-start justify-between gap-4">
+                        <h3 className="text-xl sm:text-2xl font-bold text-[#2B1D17] font-display leading-snug">
                           {items[0].name}
                         </h3>
                         {items[0].priceInInr && (
-                          <span className="text-xl font-bold text-[#A9653F] font-mono tabular-nums shrink-0">
+                          <span className="text-xl sm:text-2xl font-bold text-[#A85F37] font-mono tabular-nums shrink-0 pt-0.5">
                             {formatInrPrice(items[0].priceInInr)}
                           </span>
                         )}
                       </div>
-                      <p className="text-xs sm:text-sm text-[#6F6258] leading-relaxed max-w-2xl">
+                      <p className="text-sm text-[#63534B] leading-relaxed max-w-xl">
                         {items[0].description}
                       </p>
+                      {items[0].tastingNotes && items[0].tastingNotes.length > 0 && (
+                        <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
+                          {items[0].tastingNotes.map((note, idx) => (
+                            <span key={idx} className="badge-flavor">{note}</span>
+                          ))}
+                        </div>
+                      )}
                       {items[0].note && (
-                        <div className="mt-3 inline-flex items-center gap-1.5 text-[11px] font-medium text-[#6F6258] bg-[#E8D8C5]/70 px-2.5 py-0.5 rounded border border-[#D8C7B5]">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#A9653F]" aria-hidden="true" />
+                        <div className="inline-flex items-center gap-1.5 text-[11px] font-medium text-[#63534B] bg-[#EFE3D5]/70 px-2.5 py-1 rounded-md border border-[#E8D8C4]">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#A85F37]" aria-hidden="true" />
                           <span>{items[0].note}</span>
                         </div>
                       )}
-                    </div>
-                    <div className="md:col-span-4 border-t md:border-t-0 md:border-l border-[#D8C7B5] pt-4 md:pt-0 md:pl-6 flex flex-col justify-between h-full space-y-3">
-                      <div className="text-[11px] text-[#6F6258] leading-relaxed">
-                        Freshly prepared in our Indiranagar café on 12th Main Road. Available for dine-in &amp; takeaway.
-                      </div>
-                      <a
-                        href={getOrderWhatsAppUrl(items[0].name)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-primary tap-target text-xs font-semibold flex items-center justify-between gap-2 w-full sm:w-auto"
-                        aria-label={`Order ${items[0].name} on WhatsApp`}
-                      >
-                        <span className="flex items-center gap-2">
-                          <MessageCircle className="w-3.5 h-3.5 fill-[#FFF9F1] text-[#FFF9F1]" aria-hidden="true" />
+                      <div className="pt-3 border-t border-[#E8D8C4] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                        <a
+                          href={getOrderWhatsAppUrl(items[0].name)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn-primary tap-target text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 w-full sm:w-auto"
+                          aria-label={`Order ${items[0].name} on WhatsApp`}
+                        >
+                          <MessageCircle className="w-4 h-4 fill-[#FFFCF7] text-[#FFFCF7]" aria-hidden="true" />
                           <span>Order on WhatsApp</span>
+                          <ArrowRight className="w-3.5 h-3.5 text-[#FFFCF7] transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true" />
+                        </a>
+                        <span className="text-[10px] font-semibold uppercase tracking-wider text-[#63534B] bg-[#EFE3D5]/70 border border-[#E8D8C4] px-2.5 py-1 rounded shrink-0">
+                          In-Store &amp; Pickup
                         </span>
-                        <ArrowRight className="w-3.5 h-3.5 text-[#FFF9F1] transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true" />
-                      </a>
+                      </div>
                     </div>
                   </div>
                 ) : items.length === 3 ? (
                   /* If 3 items (Manual Brews): Balanced 3-column layout on desktop */
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {items.map((item) => (
                       <div
                         key={item.id}
-                        className="coffee-card p-6 flex flex-col justify-between"
+                        className="coffee-card group overflow-hidden flex flex-col justify-between h-full"
                       >
                         <div>
-                          <div className="flex items-center justify-between gap-2 mb-1.5">
-                            <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#8C4F2D]">
+                          {/* Product Image Frame */}
+                          <div className="relative w-full h-48 sm:h-52 overflow-hidden bg-[#E8D8C4] border-b border-[#E8D8C4]">
+                            <Image
+                              src={item.image}
+                              alt={item.name}
+                              fill
+                              unoptimized
+                              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 33vw, 380px"
+                              className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
+                            />
+                            <div className="absolute top-3 left-3 bg-[#2B1D17]/85 backdrop-blur-xs text-[#FFFCF7] border border-[rgba(245,237,226,0.2)] px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider">
                               {item.category}
-                            </span>
+                            </div>
                             {item.badge && (
-                              <span className="text-[10px] font-semibold text-[#8C4F2D] bg-[#EAE0D2] px-2 py-0.5 rounded-full border border-[#D8C7B5]">
+                              <div className="absolute top-3 right-3 bg-[#FFFCF7]/95 backdrop-blur-xs text-[#8C4F2D] border border-[#E8D8C4] px-2.5 py-0.5 rounded-full text-[10px] font-semibold tracking-wide shadow-2xs">
                                 {item.badge}
-                              </span>
+                              </div>
                             )}
                           </div>
 
-                          <div className="flex items-baseline justify-between gap-2">
-                            <h3 className="text-lg font-bold text-[#231813] font-display leading-snug">
-                              {item.name}
-                            </h3>
-                            {item.priceInInr && (
-                              <span className="text-lg font-bold text-[#8C4F2D] font-mono tabular-nums shrink-0">
-                                {formatInrPrice(item.priceInInr)}
-                              </span>
-                            )}
-                          </div>
+                          <div className="p-5 sm:p-6 space-y-3">
+                            <div className="flex items-start justify-between gap-3 min-h-[52px]">
+                              <h3 className="text-lg sm:text-xl font-bold text-[#2B1D17] font-display leading-snug">
+                                {item.name}
+                              </h3>
+                              {item.priceInInr && (
+                                <span className="text-lg sm:text-xl font-bold text-[#A85F37] font-mono tabular-nums shrink-0 pt-0.5">
+                                  {formatInrPrice(item.priceInInr)}
+                                </span>
+                              )}
+                            </div>
 
-                          <p className="mt-2 text-xs sm:text-sm text-[#6F6258] leading-relaxed">
-                            {item.description}
-                          </p>
+                            <p className="text-xs sm:text-sm text-[#63534B] leading-relaxed min-h-[58px] line-clamp-3">
+                              {item.description}
+                            </p>
 
-                          {/* Flavor Notes */}
-                          {item.tastingNotes && item.tastingNotes.length > 0 && (
-                            <div className="mt-3 flex flex-wrap items-center gap-1.5">
-                              {item.tastingNotes.map((note, idx) => (
+                            {/* Flavor Notes with locked min-height */}
+                            <div className="min-h-[58px] flex flex-wrap items-start content-start gap-1.5 pt-1">
+                              {item.tastingNotes && item.tastingNotes.map((note, idx) => (
                                 <span key={idx} className="badge-flavor">{note}</span>
                               ))}
                             </div>
-                          )}
 
-                          {item.note && (
-                            <div className="mt-3 inline-flex items-center gap-1.5 text-[11px] font-medium text-[#6F6258] bg-[#EAE0D2]/60 px-2.5 py-0.5 rounded-md border border-[#D8C7B5]">
-                              <span className="w-1.5 h-1.5 rounded-full bg-[#A9653F]" aria-hidden="true" />
-                              <span>{item.note}</span>
+                            {/* Preparation / Serving Craft Tag */}
+                            <div className="min-h-[28px] flex items-center">
+                              {item.note && (
+                                <div className="inline-flex items-center gap-1.5 text-[11px] font-medium text-[#63534B] bg-[#EFE3D5]/70 px-2.5 py-1 rounded-md border border-[#E8D8C4]">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-[#A85F37]" aria-hidden="true" />
+                                  <span>{item.note}</span>
+                                </div>
+                              )}
                             </div>
-                          )}
+                          </div>
                         </div>
 
-                        <div className="mt-5 pt-3.5 border-t border-[#D8C7B5] flex flex-wrap items-center justify-between gap-2">
+                        <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-3.5 border-t border-[#E8D8C4] flex items-center justify-between gap-2 mt-auto">
                           <a
                             href={getOrderWhatsAppUrl(item.name)}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group inline-flex items-center gap-2 text-xs font-semibold text-[#231813] hover:text-[#8C4F2D] transition-colors py-1"
+                            className="group/btn inline-flex items-center gap-1.5 text-xs font-semibold text-[#2B1D17] hover:text-[#A85F37] transition-colors py-1 tap-target"
                             aria-label={`Order ${item.name} on WhatsApp`}
                           >
                             <MessageCircle className="w-3.5 h-3.5 fill-[#25D366] text-[#25D366]" aria-hidden="true" />
                             <span>Order on WhatsApp</span>
-                            <ArrowRight className="w-3 h-3 text-[#8C4F2D] transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true" />
+                            <ArrowRight className="w-3 h-3 text-[#A85F37] transition-transform duration-200 group-hover/btn:translate-x-1" aria-hidden="true" />
                           </a>
-                          <span className="text-[10px] font-medium uppercase tracking-wider text-[#6F6258] bg-[#EAE0D2]/70 border border-[#D8C7B5] px-2 py-0.5 rounded shrink-0">
+                          <span className="text-[10px] font-semibold uppercase tracking-wider text-[#63534B] bg-[#EFE3D5]/70 border border-[#E8D8C4] px-2.5 py-0.5 rounded shrink-0">
                             In-Store &amp; Pickup
                           </span>
                         </div>
@@ -211,70 +244,82 @@ export default function MenuPage() {
                     ))}
                   </div>
                 ) : (
-                  /* If 2 items (Espresso & Milk): Balanced 2-column layout */
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+                  /* 2-column layout */
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {items.map((item) => (
                       <div
                         key={item.id}
-                        className="coffee-card p-6 flex flex-col justify-between"
+                        className="coffee-card group overflow-hidden flex flex-col justify-between h-full"
                       >
                         <div>
-                          <div className="flex items-center justify-between gap-2 mb-1.5">
-                            <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#8C4F2D]">
+                          {/* Product Image Frame */}
+                          <div className="relative w-full h-52 sm:h-56 overflow-hidden bg-[#E8D8C4] border-b border-[#E8D8C4]">
+                            <Image
+                              src={item.image}
+                              alt={item.name}
+                              fill
+                              unoptimized
+                              sizes="(max-width: 768px) 100vw, 600px"
+                              className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
+                            />
+                            <div className="absolute top-3 left-3 bg-[#2B1D17]/85 backdrop-blur-xs text-[#FFFCF7] border border-[rgba(245,237,226,0.2)] px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider">
                               {item.category}
-                            </span>
+                            </div>
                             {item.badge && (
-                              <span className="text-[10px] font-semibold text-[#8C4F2D] bg-[#EAE0D2] px-2 py-0.5 rounded-full border border-[#D8C7B5]">
+                              <div className="absolute top-3 right-3 bg-[#FFFCF7]/95 backdrop-blur-xs text-[#8C4F2D] border border-[#E8D8C4] px-2.5 py-0.5 rounded-full text-[10px] font-semibold tracking-wide shadow-2xs">
                                 {item.badge}
-                              </span>
+                              </div>
                             )}
                           </div>
 
-                          <div className="flex items-baseline justify-between gap-3">
-                            <h3 className="text-lg sm:text-xl font-bold text-[#231813] font-display leading-snug">
-                              {item.name}
-                            </h3>
-                            {item.priceInInr && (
-                              <span className="text-lg sm:text-xl font-bold text-[#8C4F2D] font-mono tabular-nums shrink-0">
-                                {formatInrPrice(item.priceInInr)}
-                              </span>
-                            )}
-                          </div>
+                          <div className="p-5 sm:p-6 space-y-3">
+                            <div className="flex items-start justify-between gap-3 min-h-[52px]">
+                              <h3 className="text-lg sm:text-xl font-bold text-[#2B1D17] font-display leading-snug">
+                                {item.name}
+                              </h3>
+                              {item.priceInInr && (
+                                <span className="text-lg sm:text-xl font-bold text-[#A85F37] font-mono tabular-nums shrink-0 pt-0.5">
+                                  {formatInrPrice(item.priceInInr)}
+                                </span>
+                              )}
+                            </div>
 
-                          <p className="mt-2 text-xs sm:text-sm text-[#6F6258] leading-relaxed">
-                            {item.description}
-                          </p>
+                            <p className="text-xs sm:text-sm text-[#63534B] leading-relaxed min-h-[58px] line-clamp-3">
+                              {item.description}
+                            </p>
 
-                          {/* Flavor Notes */}
-                          {item.tastingNotes && item.tastingNotes.length > 0 && (
-                            <div className="mt-3 flex flex-wrap items-center gap-1.5">
-                              {item.tastingNotes.map((note, idx) => (
+                            {/* Flavor Notes with locked min-height */}
+                            <div className="min-h-[58px] flex flex-wrap items-start content-start gap-1.5 pt-1">
+                              {item.tastingNotes && item.tastingNotes.map((note, idx) => (
                                 <span key={idx} className="badge-flavor">{note}</span>
                               ))}
                             </div>
-                          )}
 
-                          {item.note && (
-                            <div className="mt-3 inline-flex items-center gap-1.5 text-[11px] font-medium text-[#6F6258] bg-[#EAE0D2]/60 px-2.5 py-0.5 rounded-md border border-[#D8C7B5]">
-                              <span className="w-1.5 h-1.5 rounded-full bg-[#A9653F]" aria-hidden="true" />
-                              <span>{item.note}</span>
+                            {/* Preparation / Serving Craft Tag */}
+                            <div className="min-h-[28px] flex items-center">
+                              {item.note && (
+                                <div className="inline-flex items-center gap-1.5 text-[11px] font-medium text-[#63534B] bg-[#EFE3D5]/60 px-2.5 py-1 rounded-md border border-[#E8D8C4]">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-[#A85F37]" aria-hidden="true" />
+                                  <span>{item.note}</span>
+                                </div>
+                              )}
                             </div>
-                          )}
+                          </div>
                         </div>
 
-                        <div className="mt-5 pt-3.5 border-t border-[#D8C7B5] flex flex-wrap items-center justify-between gap-2">
+                        <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-3.5 border-t border-[#E8D8C4] flex items-center justify-between gap-2 mt-auto">
                           <a
                             href={getOrderWhatsAppUrl(item.name)}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group inline-flex items-center gap-2 text-xs font-semibold text-[#231813] hover:text-[#8C4F2D] transition-colors py-1"
+                            className="group/btn inline-flex items-center gap-1.5 text-xs font-semibold text-[#2B1D17] hover:text-[#A85F37] transition-colors py-1 tap-target"
                             aria-label={`Order ${item.name} on WhatsApp`}
                           >
                             <MessageCircle className="w-3.5 h-3.5 fill-[#25D366] text-[#25D366]" aria-hidden="true" />
                             <span>Order on WhatsApp</span>
-                            <ArrowRight className="w-3 h-3 text-[#8C4F2D] transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true" />
+                            <ArrowRight className="w-3 h-3 text-[#A85F37] transition-transform duration-200 group-hover/btn:translate-x-1" aria-hidden="true" />
                           </a>
-                          <span className="text-[10px] font-medium uppercase tracking-wider text-[#6F6258] bg-[#EAE0D2]/70 border border-[#D8C7B5] px-2 py-0.5 rounded shrink-0">
+                          <span className="text-[10px] font-semibold uppercase tracking-wider text-[#63534B] bg-[#EFE3D5]/70 border border-[#E8D8C4] px-2.5 py-0.5 rounded shrink-0">
                             In-Store &amp; Pickup
                           </span>
                         </div>
@@ -288,8 +333,8 @@ export default function MenuPage() {
         </div>
 
         {/* Pricing & GST Note */}
-        <div className="mt-12 p-5 rounded-xl bg-[#FFF9F1] border border-[#D8C7B5] text-xs text-[#6F6258] space-y-1.5 shadow-xs">
-          <p className="font-semibold text-[#2B211C] uppercase tracking-wider text-[11px]">
+        <div className="mt-14 p-6 rounded-2xl bg-[#FFFCF7] border border-[#E8D8C4] text-xs text-[#63534B] space-y-1.5 shadow-xs">
+          <p className="font-semibold text-[#2B1D17] uppercase tracking-wider text-[11px]">
             Menu &amp; Ordering Information
           </p>
           <p className="leading-relaxed">
